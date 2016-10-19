@@ -26,7 +26,12 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-
+  spec.add_runtime_dependency 'faraday', '~> 0.9.2', '>= 0.9.2'
+  spec.add_runtime_dependency 'eventmachine', '~> 1.0', '>= 1.0.9.1'
+  spec.add_runtime_dependency 'faraday-detailed_logger', '~> 1.0.0', '>= 1.0.0'
+  spec.add_runtime_dependency 'faye-websocket', '~> 0.10.3'
+  spec.add_runtime_dependency 'json', '~> 1.8.3','>= 1.8.3'
+  spec.add_runtime_dependency 'faraday_middleware', '~> 0.10', '>= 0.10.0'
   spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
