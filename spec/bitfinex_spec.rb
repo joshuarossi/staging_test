@@ -170,4 +170,15 @@ describe Bitfinex do
     result = client.key_info
     expect(result).to have_key('withdraw')
   end
+  it 'connects via websockets' do
+    client.listen_ticker do |tick|
+      tick.inspect
+    end
+    client.listen_trades do |trade|
+      trade.inspect
+    end
+    client.listen_book do |book|
+      book.inspect
+    end
+  end
 end
