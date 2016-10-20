@@ -1,16 +1,16 @@
-# Bitfinex
+# Bitfinex Trading API for Ruby. Bitcoin, Ether and Litecoin trading
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/bitfinex`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Code Climate](https://codeclimate.com/repos/56db27e5b86182573b0045ed/badges/bd763083d70114379a41/gpa.svg)](https://codeclimate.com/repos/56db27e5b86182573b0045ed/feed)
 
-TODO: Delete this and the text above, and describe your gem
+* Official implementation
+* REST API
+* WebSockets API 
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-```ruby
-gem 'bitfinex'
-```
+    gem 'bitfinex-rb'
 
 And then execute:
 
@@ -18,17 +18,27 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install bitfinex
+    $ gem install bitfinex-rb
 
 ## Usage
 
-TODO: Write usage instructions here
+Configure your gem as:
 
-## Development
+```
+Bitfinex::Client.configure do |conf|
+  conf.secret = ENV["BFX_API_SECRET"]
+  conf.api_key = ENV["BFX_API_KEY"]
+end
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
+Then you can use the client as follow:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```
+client = Bitfinex::Client.new
+client.balances
+```
+
+check the [Bitfinex API documentation](http://docs.bitfinex.com/) for more information.
 
 ## Contributing
 
