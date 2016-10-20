@@ -95,7 +95,7 @@ describe Bitfinex do
     positions = client.positions
     position = positions[0]
     result = client.claim_position(position['id'], '1.0')
-    expect(result).to have_key('swap')
+    expect(result).to have_key('id')
     pending
   end
   it 'gets balance history' do
