@@ -4,7 +4,7 @@ Bitfinex::Client.configure do |conf|
   conf.api_key = ENV["BFX_API_KEY"]
   conf.secret = ENV["BFX_API_SECRET"]
   conf.api_endpoint = "https://dev-prdn.bitfinex.com:2998/v1/"
-  conf.websocket_api_endpoint = "wss://dev-prdn.bitfinex.com:3000/ws/1.2"
+  conf.websocket_api_endpoint = "wss://dev-prdn.bitfinex.com:3000/ws"
 end
 client = Bitfinex::Client.new
 describe Bitfinex do
