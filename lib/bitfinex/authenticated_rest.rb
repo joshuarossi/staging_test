@@ -15,6 +15,20 @@ module Bitfinex
         req.headers['X-BFX-APIKEY'] = config.api_key 
       end
     end
+    
+    def authenticated_get(url, options = {})
+      raise Bitfinex::InvalidAuthKeyError unless valid_key?
+      complete_url = build_url(url)
+      payload = build_payload("/v1/#{url}", options[:params])
+      response = rest_connection.get do |req|
+        req.url complete_url
+	req.headers['Content-Type'] = 'application/json'
+	req.headers['Accept'] = 'application/json'
+	req.headers['X-BFX-PAYLOAD'] = payload
+	req.headers['X-BFX-SIGNATURE'] = sign(payload)
+	req.headers['X-BFX-APIKEY'] = config.api_key 
+      end
+    end
 
     def build_payload(url, params = {})
       payload = {}

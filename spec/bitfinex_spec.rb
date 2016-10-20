@@ -169,6 +169,5 @@ describe Bitfinex do
   it 'checks the permission of the key' do
     result = client.key_info
     expect(result).to have_key('withdraw')
-    pending
   end
 end

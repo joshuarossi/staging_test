@@ -92,7 +92,7 @@ module Bitfinex
     # @example:
     #   client.key_info
     def key_info
-      authenticated_post("key_info").body
+      authenticated_get("key_info").body
     end
   end
 end
